@@ -27,3 +27,61 @@ preprocess:
   phenotype_n_z_planes: null
   phenotype_metadata_samples_df_fp: null
   sample_fraction: 0.2
+sbs:
+  alignment_method: DAPI
+  channel_names:
+  - DAPI
+  - G
+  - T
+  - A
+  - C
+  upsample_factor: 2
+  window: 2
+  skip_cycles_indices: null
+  manual_background_cycle_index: null
+  manual_channel_mapping: null
+  extra_channel_indices:
+  - 0
+  max_filter_width: 3
+  spot_detection_method: standard
+  dapi_cycle: 1
+  dapi_cycle_index: 0
+  cyto_cycle: 1
+  cyto_cycle_index: 0
+  dapi_index: 0
+  cyto_index: 1
+  segmentation_method: cellpose
+  gpu: false
+  reconcile: contained_in_cells
+  segment_cells: false
+  df_barcode_library_fp: config/barcode_library.tsv
+  threshold_peaks: 50
+  call_reads_method: percentile
+  bases:
+  - G
+  - T
+  - A
+  - C
+  q_min: 0
+  error_correct: true
+  sort_calls: peak
+  barcode_type: multi
+  heatmap_plate: 6W
+  heatmap_shape: 6W_sbs
+  max_distance: 2
+  map_start: 1
+  map_end: 12
+  map_col: prefix_map
+  recomb_start: 13
+  recomb_end: 14
+  recomb_col: prefix_recomb
+  recomb_filter_col: Q_recomb
+  recomb_q_thresh: 0.1
+  peak_width: 10
+  nuclei_diameter: 8.368283871884005
+  cell_diameter: 11.11324596323283
+  nuclei_flow_threshold: 0.4
+  nuclei_cellprob_threshold: 0.0
+  cell_flow_threshold: 1
+  cell_cellprob_threshold: 0
+  cellpose_model: cyto3
