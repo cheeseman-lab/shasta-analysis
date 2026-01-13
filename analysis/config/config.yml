@@ -85,3 +85,49 @@ sbs:
   cell_flow_threshold: 1
   cell_cellprob_threshold: 0
   cellpose_model: cyto3
+phenotype:
+  foci_channel_index:
+  - 1
+  - 2
+  - 3
+  - 5
+  - 6
+  - 7
+  - 8
+  channel_names:
+  - DAPI
+  - ATACsee
+  - H4Kacme
+  - pSer5
+  - KI67
+  - H3K4me3
+  - H3K27ac
+  - pSer2
+  - H3K9me3
+  align: 'true'
+  dapi_index: 0
+  cyto_index: 4
+  segmentation_method: cellpose
+  reconcile: contained_in_cells
+  gpu: false
+  segment_cells: false
+  cp_method: cp_multichannel
+  heatmap_plate: 6W
+  heatmap_shape: 6W_ph
+  nuclei_diameter: 43.49751675068879
+  cell_diameter: 56.913279661307996
+  nuclei_flow_threshold: 0.4
+  nuclei_cellprob_threshold: 0.0
+  cell_flow_threshold: 1
+  cell_cellprob_threshold: 0
+  cellpose_model: cyto3
+  target: 0
+  source: 5
+  riders:
+  - 6
+  - 7
+  - 8
+  - 9
+  remove_channel: source
+  upsample_factor: 2
+  window: 2

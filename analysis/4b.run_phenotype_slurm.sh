@@ -10,7 +10,7 @@ exec > >(tee -a "$log_file") 2>&1
 start_time=$(date +%s)
 
 # TODO: Set number of plates to process
-NUM_PLATES=None
+NUM_PLATES=2
 
 echo "===== STARTING SEQUENTIAL PROCESSING OF $NUM_PLATES PLATES ====="
 
@@ -31,14 +31,14 @@ for PLATE in $(seq 1 $NUM_PLATES); do
         --latency-wait 60 \
         --rerun-triggers mtime \
         --keep-going \
-        --groups apply_ic_field_phenotype=phenotype_tile_group \
-                align_phenotype=phenotype_tile_group \
-                segment_phenotype=phenotype_tile_group \
-                extract_phenotype_info=phenotype_tile_group \
-                identify_cytoplasm=phenotype_tile_group \
-                extract_phenotype_cp=phenotype_tile_group \
+        --groups apply_ic_field_phenotype=extract_phenotype_info_group \
+                align_phenotype=extract_phenotype_info_group \
+                segment_phenotype=extract_phenotype_info_group \
+                extract_phenotype_info=extract_phenotype_info_group \
+                identify_cytoplasm=extract_phenotype_cp_group \
+                extract_phenotype_cp=extract_phenotype_cp_group \
         --until all_phenotype \
-        --config plate_filter=$PLATE
+        --config plate_filter=$PLATE -n
     
     # Check if Snakemake was successful
     if [ $? -ne 0 ]; then
