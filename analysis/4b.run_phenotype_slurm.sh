@@ -36,9 +36,9 @@ for PLATE in $(seq 1 $NUM_PLATES); do
                 segment_phenotype=extract_phenotype_info_group \
                 extract_phenotype_info=extract_phenotype_info_group \
                 identify_cytoplasm=extract_phenotype_cp_group \
-                extract_phenotype_cp=extract_phenotype_cp_group \
+                extract_phenotype=extract_phenotype_cp_group \
         --until all_phenotype \
-        --config plate_filter=$PLATE -n
+        --config plate_filter=$PLATE
     
     # Check if Snakemake was successful
     if [ $? -ne 0 ]; then

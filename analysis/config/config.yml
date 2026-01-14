@@ -111,7 +111,7 @@ phenotype:
   reconcile: contained_in_cells
   gpu: false
   segment_cells: false
-  cp_method: cp_multichannel
+  cp_method: cp_emulator
   heatmap_plate: 6W
   heatmap_shape: 6W_ph
   nuclei_diameter: 43.49751675068879
