@@ -3,21 +3,21 @@
 # Log all output to a log file (stdout and stderr)
 mkdir -p slurm/slurm_output/main
 start_time_formatted=$(date +%Y%m%d_%H%M%S)
-log_file="slurm/slurm_output/main/aggregate-${start_time_formatted}.log"
+log_file="slurm/slurm_output/main/cluster-${start_time_formatted}.log"
 exec > >(tee -a "$log_file") 2>&1
 
 # Start timing
 start_time=$(date +%s)
 
-# Run the aggregate rules
+# Run the cluster rules
 snakemake --executor slurm --use-conda \
     --workflow-profile "slurm/" \
     --snakefile "../brieflow/workflow/Snakefile" \
     --configfile "config/config.yml" \
-    --latency-wait 60 \
+    --latency-wait 10 \
     --rerun-triggers mtime \
     --keep-going \
-    --until all_aggregate
+    --until all_cluster
 
 # End timing and calculate duration
 end_time=$(date +%s)
