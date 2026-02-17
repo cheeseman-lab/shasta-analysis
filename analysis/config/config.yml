@@ -183,3 +183,44 @@ classify:
     label_to_class:
       1: Mitotic
       2: Interphase
+aggregate:
+  metadata_cols_fp: config/cell_data_metadata_cols.tsv
+  collapse_cols:
+  - cell_barcode_0
+  - gene_symbol_0
+  aggregate_combo_fp: config/aggregate_combo.tsv
+  filter_queries:
+  - mapped_single_gene == True
+  - no_recomb_0 == True
+  perturbation_name_col: gene_symbol_0
+  drop_cols_threshold: 0.1
+  drop_rows_threshold: 0.01
+  impute: true
+  contamination: 0.01
+  batch_cols:
+  - plate
+  - well
+  control_key: nontargeting_intergenic_
+  perturbation_id_col: cell_barcode_0
+  variance_or_ncomp: 0.99
+  num_align_batches: 1
+  agg_method: median
+  skip_perturbation_score: false
+  ps_probability_threshold: null
+  ps_percentile_threshold: null
+  feature_normalization: mad
+  num_sims: 100000
+  exclusion_string: null
+  bootstrap_combinations:
+  - cell_class: all
+    channel_combo: DAPI_ATACsee_H4Kacme_pSer5_KI67_H3K4me3_H3K27ac_pSer2_H3K9me3
+  pseudogene_patterns:
+    nontargeting_noncutting:
+      pattern: ^nontargeting_noncutting_
+      constructs_per_pseudogene: 2
+    nontargeting_intergenic:
+      pattern: ^nontargeting_intergenic_
+      constructs_per_pseudogene: 2
+    olfactory_receptors:
+      pattern: ^nontargeting_or_
+      constructs_per_pseudogene: 2
