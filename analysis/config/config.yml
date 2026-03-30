@@ -191,7 +191,6 @@ aggregate:
   aggregate_combo_fp: config/aggregate_combo.tsv
   filter_queries:
   - mapped_single_gene == True
-  - no_recomb_0 == True
   perturbation_name_col: gene_symbol_0
   drop_cols_threshold: 0.1
   drop_rows_threshold: 0.01
@@ -224,3 +223,28 @@ aggregate:
     olfactory_receptors:
       pattern: ^nontargeting_or_
       constructs_per_pseudogene: 2
+cluster:
+  min_cell_cutoffs:
+    all: 10
+    Interphase: 10
+  leiden_resolutions:
+  - 5
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 25
+  phate_distance_metric: cosine
+  cluster_combo_fp: config/cluster_combo.tsv
+  uniprot_data_fp: config/benchmark_clusters/uniprot_data.tsv
+  string_pair_benchmark_fp: config/benchmark_clusters/string_pair_benchmark.tsv
+  corum_group_benchmark_fp: config/benchmark_clusters/corum_group_benchmark.tsv
+  kegg_group_benchmark_fp: config/benchmark_clusters/kegg_group_benchmark.tsv
+  perturbation_auc_threshold: 0.7
