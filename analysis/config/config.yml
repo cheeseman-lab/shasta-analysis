@@ -226,7 +226,6 @@ aggregate:
 cluster:
   min_cell_cutoffs:
     all: 10
-    Interphase: 10
   leiden_resolutions:
   - 5
   - 10
